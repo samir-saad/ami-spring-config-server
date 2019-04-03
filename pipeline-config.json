@@ -1,0 +1,39 @@
+{
+  "externalConfig": {
+    "branch": "develop"
+  },
+  "ciConfig": {
+    "codeTestStage": {
+      "enable": false
+    },
+    "codeSecurityStage": {
+      "enable": false
+    },
+    "codeQualityStage": {
+      "enable": false
+    }
+  },
+  "cdConfig": {
+    "ocpDevDeployment": {
+      "type": "recreate",
+      "replicas": 1,
+      "autoScaling": {
+        "enable": false
+      }
+    },
+    "ocpTestDeployment": {
+      "type": "recreate",
+      "replicas": 1,
+      "autoScaling": {
+        "enable": false
+      }
+    },
+    "ocpProdDeployment": {
+      "type": "recreate",
+      "replicas": 1,
+      "autoScaling": {
+        "enable": false
+      }
+    }
+  }
+}
