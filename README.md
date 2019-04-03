@@ -1,0 +1,1 @@
+# ami-spring-config-server
