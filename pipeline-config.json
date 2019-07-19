@@ -10,7 +10,7 @@
       "enable": true
     },
     "codeQualityStage": {
-      "enable": true
+      "enable": false
     }
   },
   "cdConfig": {
