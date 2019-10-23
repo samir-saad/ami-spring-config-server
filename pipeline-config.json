@@ -1,39 +1,36 @@
 {
-  "externalConfig": {
+  "primaryConfigRepo": {
     "branch": "develop"
   },
-  "ciConfig": {
-    "codeTestStage": {
-      "enable": false
-    },
-    "codeSecurityStage": {
-      "enable": false
-    },
-    "codeQualityStage": {
-      "enable": false
-    }
-  },
-  "cdConfig": {
-    "ocpDevDeployment": {
-      "type": "recreate",
-      "replicas": 1,
-      "autoScaling": {
-        "enable": false
+  "stages": [
+    {
+      "taskType": "DEPLOY_DEV",
+      "template": {
+        "id": "spring-cloud-config-server-template",
+        "extraParams": {
+          "IMAGE_TAG": "latest"
+        }
+      },
+      "platform": {
+        "clusterId": "ocp-dev",
+        "project": "pipeline-demo-dev"
+      },
+      "deployment": {
+        "deploymentType": "BASIC"
       }
     },
-    "ocpTestDeployment": {
-      "type": "recreate",
-      "replicas": 1,
-      "autoScaling": {
-        "enable": false
-      }
-    },
-    "ocpProdDeployment": {
-      "type": "recreate",
-      "replicas": 1,
-      "autoScaling": {
-        "enable": false
+    {
+      "taskType": "DEPLOY_TEST",
+      "template": {
+        "id": "spring-cloud-config-server-template"
+      },
+      "platform": {
+        "clusterId": "ocp-dev",
+        "project": "pipeline-demo-test"
+      },
+      "deployment": {
+        "deploymentType": "BASIC"
       }
     }
-  }
+  ]
 }
