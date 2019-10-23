@@ -4,6 +4,22 @@
   },
   "stages": [
     {
+      "taskType": "UNIT_TESTING",
+      "enable": false
+    },
+    {
+      "taskType": "QUALITY_SCANNING",
+      "enable": false
+    },
+    {
+      "taskType": "DEPENDENCY_CHECK",
+      "enable": false
+    },
+    {
+      "taskType": "BINARIES_ARCHIVE",
+      "enable": false
+    },
+    {
       "taskType": "DEPLOY_DEV",
       "template": {
         "id": "spring-cloud-config-server-template",
