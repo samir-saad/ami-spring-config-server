@@ -69,7 +69,11 @@
         "project": "pipeline-demo-test"
       },
       "deployment": {
-        "deploymentType": "BASIC"
+        "deploymentType": "BASIC",
+        "replicas": 1,
+        "autoScaling": {
+          "enable": false
+        }
       }
     }
   ]
