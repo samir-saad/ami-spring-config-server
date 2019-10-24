@@ -4,6 +4,10 @@
   },
   "stages": [
     {
+      "taskType": "CODE_BUILD",
+      "enable": false
+    },
+    {
       "taskType": "UNIT_TESTING",
       "enable": false
     },
@@ -21,6 +25,7 @@
     },
     {
       "taskType": "CONTAINER_BUILD",
+      "enable": false,
       "platform": {
         "clusterId": "ocp-dev",
         "project": "pipeline-demo-dev"
@@ -31,7 +36,12 @@
       "template": {
         "id": "spring-cloud-config-server-template",
         "extraParams": {
-          "IMAGE_TAG": "latest"
+          "IMAGE_TAG": "latest",
+          "JAVA_OPTIONS": "-XshowSettings:vm -Xms400m -Xmx900m",
+          "CPU_REQUEST": "300m",
+          "CPU_LIMIT": "3",
+          "MEMORY_REQUEST": "512Mi",
+          "MEMORY_LIMIT": "1Gi"
         }
       },
       "platform": {
@@ -45,7 +55,14 @@
     {
       "taskType": "DEPLOY_TEST",
       "template": {
-        "id": "spring-cloud-config-server-template"
+        "id": "spring-cloud-config-server-template",
+        "extraParams": {
+          "JAVA_OPTIONS": "-XshowSettings:vm -Xms400m -Xmx900m",
+          "CPU_REQUEST": "300m",
+          "CPU_LIMIT": "3",
+          "MEMORY_REQUEST": "512Mi",
+          "MEMORY_LIMIT": "1Gi"
+        }
       },
       "platform": {
         "clusterId": "ocp-dev",
