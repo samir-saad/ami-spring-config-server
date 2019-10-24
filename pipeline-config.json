@@ -20,6 +20,13 @@
       "enable": false
     },
     {
+      "taskType": "CONTAINER_BUILD",
+      "platform": {
+        "clusterId": "ocp-dev",
+        "project": "pipeline-demo-dev"
+      }
+    },
+    {
       "taskType": "DEPLOY_DEV",
       "template": {
         "id": "spring-cloud-config-server-template",
